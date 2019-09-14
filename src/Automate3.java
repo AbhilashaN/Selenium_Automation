@@ -19,7 +19,9 @@ public class Automate3 {
 		WebDriver driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
 		driver.get("https://www.amazon.in/");
+		//maximize the window
 		driver.manage().window().maximize();
+		//Instantiate object of Actions class
 		Actions act = new Actions(driver);
 		WebDriverWait wait = new WebDriverWait(driver, 120);
 		logo = driver.findElement(By.xpath("//a[@aria-label='Amazon']"));
@@ -31,6 +33,7 @@ public class Automate3 {
 		categ = driver.findElement(By.xpath("//span[contains(text(),'Category')]/.."));
 		act.moveToElement(categ).perform();
 		tv = driver.findElement(By.xpath("//span[contains(text(),'TV, Appliances, Electronics')]"));
+		//explicit wait
 		wait.until(ExpectedConditions
 				.presenceOfElementLocated(By.xpath("//span[contains(text(),'TV, Appliances, Electronics')]")));
 		act.moveToElement(tv).perform();
