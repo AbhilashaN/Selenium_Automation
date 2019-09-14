@@ -17,7 +17,9 @@ public class Automate4 {
 		System.setProperty("webdriver.chrome.driver","C:/Users/hp 1/chromedriver_win32/chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
+		//set the url
 		driver.get("https://www.amazon.in/");
+		//maximize the window
 		driver.manage().window().maximize();
 		Actions act = new Actions(driver);
 		WebDriverWait wait = new WebDriverWait(driver, 120);
@@ -40,9 +42,6 @@ public class Automate4 {
 		driver.switchTo().window(wd2);
 		cart = driver.findElement(By.xpath("//span[contains(text(),'Add to Cart')]"));
 		wait.until(ExpectedConditions.elementToBeClickable(cart));
-		act.moveToElement(cart).click().perform();
-
-		
+		act.moveToElement(cart).click().perform();	
 	}
-
 }
